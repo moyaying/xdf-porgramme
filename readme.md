@@ -15,10 +15,13 @@
 运行训练脚本
 ```python main.py```
 
+
 ### python环境准备
-```pip install sklearn```  
-```...```  
-```pip install openpyxl```
+```pip install -r requirement.txt```
+
+
+### 导出依赖
+```pip freeze >requirements.txt```
    
    
 ### 1000条样例数据训练结果  
