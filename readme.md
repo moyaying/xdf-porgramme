@@ -1,28 +1,24 @@
 # 逻辑回归训练
 
-### 数据整理
-准备好数据样本 sample.xlsx  
-自动识别【标题】中特殊字符并处理  
-1. **去掉** (不作为训练数据)
-2. **只需数字** (获取数字部分作为训练数据)
-3. **虚拟** (将按照sample数据的总类，自动添加列类别，如 学校（小学，中学，大学），则自动添加列 学校小学，学校中学),不添加大学，因为互斥，不是小学、中学的话，就是大学。
-4. **枚举** (将按照sample数据的总类，自动编号，如 学校（小学，中学，大学），小学==0， 中学==1， 大学==2，具体数据查看 out/type_enum.txt)
-5. **年月日** (将日期创建成年、月、日三个列类别, 如 开学时间, 2020/09/05， 则自动添加 开学时间年、开学时间月、开学时间日)
+### 关于数据整理
+准备好数据样本 sample/sample2.xlsx  
+数据将按照 sample/数据处理方式.txt 来预处理，并生成 out/sample2.csv, sample2_titles.txt, sample2_data_mapping.txt 三个文件
+其中 sample2_data_mapping.txt 文件里面有具体的每个数据的重新编号，如 少儿部 -> 1 等类似的编号。
 
-运行数据整理脚本   
-```python handle_data.py```
+#### 数据整理   
+```python handle_data2.py```
 
-运行训练脚本
-```python main.py```
+#### 数据训练
+```python main.py```   
+
+输出结果保存在 out/result.txt 文件
 
 
 ### python环境准备
 ```pip install -r requirement.txt```
 
 
-### 导出依赖
+#### 导出依赖
 ```pip freeze >requirements.txt```
    
    
-### 1000条样例数据训练结果  
-score Scikit learn:  0.7801047120418848

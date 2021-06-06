@@ -19,32 +19,33 @@ from sklearn.model_selection import train_test_split
 from numpy import loadtxt, where
 from pylab import scatter, show, legend, xlabel, ylabel
 from sklearn.preprocessing import StandardScaler  # data normalization
+import time
 
-with open('./out/titles.txt') as json_file:
+with open('./out/sample2_titles.txt') as json_file:
     titles = json.load(json_file)
-    # list(titles).remove('学员号')
-    # del titles[0]
-    print(titles)
-# exit(0)
+    y_index = titles.index("是否报下个季度")
+
+title_train = titles[:y_index]
+title_train.extend(titles[y_index + 1:])
 
 # scale larger positive and values to between -1,1 depending on the largest
 # value in the data
 min_max_scaler = preprocessing.MinMaxScaler(feature_range=(-1, 1))
-df = pd.read_csv("out/tt.csv", header=0)
+df = pd.read_csv("out/sample2.csv", header=0)
 
 # for i in df.columns:
 #     df[i] = df[i].astype(int)
 
 # clean up data
 # df.columns = titles
-X = df[titles[0:-1]]
+X = df[title_train]
 X = np.array(X)
-print(X)
+# print(X)
 
 X = StandardScaler().fit(X).transform(X)  # 数据转换
 # print(X)
 
-Y = df[titles[-1]]
+Y = df[titles[y_index]]
 Y = np.asarray(Y)
 
 # creating testing and training set
@@ -53,7 +54,15 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.33)  # 建
 # train scikit learn model
 clf = LogisticRegression()  # 使用逻辑回归模型
 clf.fit(X_train, Y_train)  # 训练模型
-print('score Scikit learn: ', clf.score(X_test, Y_test))  # 打印正确率
+score = clf.score(X_test, Y_test)
+
+timeFormat = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
+fo = open("out/result.txt", "w")
+fo.write('score: ' + str(score) + ', time: ' + timeFormat)
+fo.close()
+
+print('score Scikit learn: ', score)  # 打印正确率
 
 # yhat = clf.predict(X_test)
 # print('yhat', yhat)
