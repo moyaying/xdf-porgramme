@@ -190,7 +190,7 @@ def handle_cell(line_n, row_n, data):
 excel = openpyxl.load_workbook(filename="sample/sample2.xlsx", read_only=True)
 ws = excel.active
 
-csv_col = csv.writer(open("out/sample2.csv", 'w', newline=""))
+csv_col = csv.writer(open("out/sample2.csv", 'w', newline="", encoding='utf-8-sig'))
 
 line_num = 0
 titles = []
