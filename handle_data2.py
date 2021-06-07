@@ -51,12 +51,6 @@ def add_virtual(key_name, item_value):
     return zones[:-1]
 
 
-# 教学区
-zoneSize = 10
-zoneIdx = 0
-teachingZone = {}
-
-
 def handle_cell(line_n, row_n, data):
     if row_n == 0:  # 学员号
         pass  # ignore
