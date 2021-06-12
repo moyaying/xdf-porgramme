@@ -101,9 +101,12 @@ def handle_cell(line_n, row_n, data):
         else:
             return [1]
     elif row_n == 12:  # 科目
-        key = "科目"
-        idx = add_enum(key, ['语文', '数学'], 1, data)
-        return [idx]
+        # key = "科目"
+        # idx = add_enum(key, ['语文', '数学'], 1, data)
+        # return [idx]
+        v = add_virtual("科目", data)  # 使用虚拟变量
+        print(v, data)
+        return v
     elif row_n == 13 or row_n == 14:  # 开课日期, 结课日期.  格式支持: xxxx-xx-xx, xxxx/xx/xx
         obj = re.search(r'(\d{4}).(\d{2}).(\d{2})', str(data), re.M | re.I)
         values = obj.groups()
@@ -196,6 +199,8 @@ for rows in ws.rows:
             title = rows[row_num].value
             if row_num in [0, 1, 2, 4, 5, 20, 21, 24]:  # ignore
                 pass
+            elif row_num == 12:  # 科目，使用虚拟变量
+                titles.extend(new_virtual("科目", 3))
             elif row_num == 13 or row_num == 14:  # 开课日期, 结课日期
                 titles.extend([title + '-年', title + '-月', title + '-日'])
             elif row_num == 15:  # 教学区, 虚拟
