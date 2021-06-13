@@ -40,6 +40,7 @@ def add_virtual(key_name, item_value):
     item_data_define = data_define[key_name]
     index = item_data_define["index"]
     if item_value not in item_data_define['data']:
+        print(item_value, index)
         item_data_define['data'][item_value] = index
         item_data_define["index"] = index + 1
     else:
@@ -107,7 +108,6 @@ def handle_cell(row_n, data):
         idx = add_enum(key, ['语文', '数学'], 1, data)
         return [idx]
         # v = add_virtual("科目", data)  # 使用虚拟变量
-        # print(v, data)
         # return v
     elif row_n == 13 or row_n == 14:  # 开课日期, 结课日期.  格式支持: xxxx-xx-xx, xxxx/xx/xx
         # obj = re.search(r'(\d{4}).(\d{2}).(\d{2})', str(data), re.M | re.I)
@@ -210,10 +210,9 @@ for rows in ws.rows:
         for row_num in range(0, len(rows)):
             title = rows[row_num].value
             if row_num in [0, 1, 2, 4, 5, 6, 10, 13, 14, 15, 16, 19, 20, 21, 24, 29, 30, 32]:  # ignore
-                # print('ignore', title)
                 pass
             elif row_num == 25:
-                titles.extend(new_virtual("主代课教师", 73))
+                titles.extend(new_virtual("主代课教师", 253))
             # elif row_num == 12:  # 科目，使用虚拟变量
             #     titles.extend(new_virtual("科目", 3))
             # elif row_num == 13 or row_num == 14:  # 开课日期, 结课日期
@@ -233,7 +232,6 @@ for rows in ws.rows:
             cell_data = handle_cell(row_num, item)
             row_data.extend(cell_data)
         if len(row_data) > 0:
-            print(row_data, len(row_data), line_num)
             csv_col.writerow(row_data)
     line_num = line_num + 1
 
