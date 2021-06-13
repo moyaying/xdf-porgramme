@@ -148,7 +148,9 @@ def handle_cell(row_n, data):
         # key = "主代课教师"
         # idx = add_enum(key, None, 1, data)
         # return [idx]
-        pass
+        # pass
+        teachers = add_virtual("主代课教师", data)
+        return teachers
     elif row_n == 26:  # 是否管理者
         if data == '管理者':
             return [1]
@@ -207,9 +209,11 @@ for rows in ws.rows:
         titles = []
         for row_num in range(0, len(rows)):
             title = rows[row_num].value
-            if row_num in [0, 1, 2, 4, 5, 6, 10, 13, 14, 15, 16, 19, 20, 21, 24, 25, 29, 30, 32]:  # ignore
+            if row_num in [0, 1, 2, 4, 5, 6, 10, 13, 14, 15, 16, 19, 20, 21, 24, 29, 30, 32]:  # ignore
                 # print('ignore', title)
                 pass
+            elif row_num == 25:
+                titles.extend(new_virtual("主代课教师", 73))
             # elif row_num == 12:  # 科目，使用虚拟变量
             #     titles.extend(new_virtual("科目", 3))
             # elif row_num == 13 or row_num == 14:  # 开课日期, 结课日期

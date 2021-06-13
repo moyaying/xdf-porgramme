@@ -27,6 +27,7 @@ with open('./out/sample2_titles.txt') as json_file:
 
 title_train = titles[:y_index]
 title_train.extend(titles[y_index + 1:])
+print("title_train", title_train)
 
 # scale larger positive and values to between -1,1 depending on the largest
 # value in the data
@@ -45,6 +46,7 @@ X = np.array(X)
 X = StandardScaler().fit(X).transform(X)  # 数据转换
 # print(X)
 
+print("y title", titles[y_index]);
 Y = df[titles[y_index]]
 Y = np.asarray(Y)
 
