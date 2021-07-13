@@ -4,3 +4,6 @@ sample.xlsx
 venv
 grade_test.py
 sample/sample2.xlsx
+decisionTreeModel/.ipynb_checkpoints
+decisionTreeModel/__pycache__
+decisionTreeModel/data/sample2.xlsx
