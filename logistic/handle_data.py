@@ -7,12 +7,12 @@ import csv
 # open given workbook
 # and store in excel object
 # excel = openpyxl.load_workbook("Test.xlsx")
-excel = openpyxl.load_workbook("sample.xlsx")
+excel = openpyxl.load_workbook("../sample/sample.xlsx")
 
 # select the active sheet
 sheet = excel.active
 
-fo = open("out/type_enum.txt", "w")
+fo = open("../out/type_enum.txt", "w")
 i = 0
 typeEnum = dict()
 for col in sheet.columns:
@@ -43,7 +43,7 @@ fo.close()
 
 # writing the data in csv file
 # writer object is created
-col = csv.writer(open("out/tt.csv",
+col = csv.writer(open("../out/tt.csv",
                       'w',
                       newline=""))
 valued_rows = []
@@ -89,7 +89,7 @@ for r in sheet.rows:
                 valued_name[i] = title
                 row_data.append(title)
 
-            with open('./out/titles.txt', 'w') as filehandle:
+            with open('../out/titles.txt', 'w') as filehandle:
                 json.dump(row_data, filehandle)
     else:
         for i in range(0, len(r)):

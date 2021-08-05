@@ -1,9 +1,9 @@
 mytest
-sample.xlsx
+out
 .idea
 venv
-grade_test.py
-sample/sample2.xlsx
+sample/*.xlsx
+*.pyc
 decisionTreeModel/.ipynb_checkpoints
 decisionTreeModel/__pycache__
 decisionTreeModel/data/sample2.xlsx

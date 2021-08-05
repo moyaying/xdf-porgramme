@@ -1,7 +1,10 @@
+import os
+
 import openpyxl
 import re
 import csv
 import json
+from libs import files
 
 data_define = {}
 
@@ -148,9 +151,9 @@ def handle_cell(row_n, data):
         # key = "主代课教师"
         # idx = add_enum(key, None, 1, data)
         # return [idx]
-        # pass
-        teachers = add_virtual("主代课教师", data)
-        return teachers
+        pass
+        # teachers = add_virtual("主代课教师", data)
+        # return teachers
     elif row_n == 26:  # 是否管理者
         if data == '管理者':
             return [1]
@@ -196,50 +199,61 @@ def handle_cell(row_n, data):
     return []
 
 
-excel = openpyxl.load_workbook(filename="sample/sample2.xlsx", read_only=True)
-ws = excel.active
+def handle_data():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(current_dir)
+    sample_dir = os.path.join(root_dir, "sample")
 
-csv_col = csv.writer(open("out/sample2.csv", 'w', newline="", encoding='utf-8-sig'))
+    excel = openpyxl.load_workbook(filename=os.path.join(sample_dir, "sample2.xlsx"), read_only=True)
+    ws = excel.active
 
-line_num = 0
-titles = []
-for rows in ws.rows:
-    # 标题titles
-    if line_num == 0:
+    sample_logistic_out = os.path.join(root_dir, "out", "logistic")
+    files.mkdir(sample_logistic_out)
+    with open(os.path.join(sample_logistic_out, "sample2.csv"), 'w', newline="", encoding='utf-8-sig') as cvs_file:
+        csv_col = csv.writer(cvs_file)
+
+        line_num = 0
         titles = []
-        for row_num in range(0, len(rows)):
-            title = rows[row_num].value
-            if row_num in [0, 1, 2, 4, 5, 6, 10, 13, 14, 15, 16, 19, 20, 21, 24, 29, 30, 32]:  # ignore
-                pass
-            elif row_num == 25:
-                titles.extend(new_virtual("主代课教师", 253))
-            # elif row_num == 12:  # 科目，使用虚拟变量
-            #     titles.extend(new_virtual("科目", 3))
-            # elif row_num == 13 or row_num == 14:  # 开课日期, 结课日期
-            #     titles.extend([title + '-年', title + '-月', title + '-日'])
-            # elif row_num == 15:  # 教学区, 虚拟
-            #     titles.extend(new_virtual("教学区", 10))
-            else:
-                titles.append(title)
-        print(titles, len(titles))
-        csv_col.writerow(titles)
-    else:  # 处理row数据
-        row_data = []
-        for row_num in range(0, len(rows)):
-            item = rows[row_num].value
-            if row_num == 0 and item is None:  # 学员号是 None 则 当作空行
-                break
-            cell_data = handle_cell(row_num, item)
-            row_data.extend(cell_data)
-        if len(row_data) > 0:
-            csv_col.writerow(row_data)
-    line_num = line_num + 1
+        for rows in ws.rows:
+            # 标题titles
+            if line_num == 0:
+                titles = []
+                for row_num in range(0, len(rows)):
+                    title = rows[row_num].value
+                    if row_num in [0, 1, 2, 4, 5, 6, 10, 13, 14, 15, 16, 19, 20, 21, 24, 25, 29, 30, 32]:  # ignore
+                        pass
+                    # elif row_num == 25:
+                    #     titles.extend(new_virtual("主代课教师", 253))
+                    # elif row_num == 12:  # 科目，使用虚拟变量
+                    #     titles.extend(new_virtual("科目", 3))
+                    # elif row_num == 13 or row_num == 14:  # 开课日期, 结课日期
+                    #     titles.extend([title + '-年', title + '-月', title + '-日'])
+                    # elif row_num == 15:  # 教学区, 虚拟
+                    #     titles.extend(new_virtual("教学区", 10))
+                    else:
+                        titles.append(title)
+                csv_col.writerow(titles)
+            else:  # 处理row数据
+                row_data = []
+                for row_num in range(0, len(rows)):
+                    item = rows[row_num].value
+                    if row_num == 0 and item is None:  # 学员号是 None 则 当作空行
+                        break
+                    cell_data = handle_cell(row_num, item)
+                    row_data.extend(cell_data)
+                if len(row_data) > 0:
+                    csv_col.writerow(row_data)
+            line_num = line_num + 1
 
-# 写titles
-with open('./out/sample2_titles.txt', 'w') as filehandle:
-    json.dump(titles, filehandle)
+        # 写titles
+        with open(os.path.join(sample_logistic_out, "sample2_titles.txt"), 'w') as filehandle:
+            json.dump(titles, filehandle)
 
-# 写入映射关系
-fo = open("out/sample2_data_mapping.txt", "w")
-fo.write(str(data_define))
-fo.close()
+        # 写入映射关系
+        with open(os.path.join(sample_logistic_out, "sample2_data_mapping.txt"), "w") as fo:
+            fo.write(str(data_define))
+            fo.close()
+
+
+if __name__ == '__main__':
+    handle_data()
