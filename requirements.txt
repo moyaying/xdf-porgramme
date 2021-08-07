@@ -73,3 +73,4 @@ webencodings==0.5.1
 widgetsnbextension==3.5.1
 xlrd==2.0.1
 pymongo~=3.12.0
+requests~=2.26.0
