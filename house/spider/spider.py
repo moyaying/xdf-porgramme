@@ -127,6 +127,7 @@ def start_list():
     # 上次进度
     last_position = db.get_last_position()
     for city_idx in city_indexs:
+        print('start city {0}'.format(city_idx))
         if city_idx < last_position['city']:
             continue
 
@@ -151,6 +152,7 @@ def start_list():
             print('保存进度 city {0}, total_cnt {1}, page {2}'.format(city_idx, total_cnt, page))
             db.save_last_position(city_idx, page, total_cnt)
             print('-------page end--------')
+        last_position = {'city': city_idx, 'page': 0, 'total_cnt': 0}
 
     print('-------start list end--------')
 
