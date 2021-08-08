@@ -21,7 +21,7 @@ def get_list_header(page=1, ret_range=None, ret_type=1):
 
     return {
         "machineNo": "",
-        "ipAddress": "203.218.155.48",
+        "ipAddress": "45.152.113.89",
         "osType": 4,
         "model": "web",
         "deviceVersion": "Mac OS X 10.15.7",
@@ -55,7 +55,7 @@ def get_list_header(page=1, ret_range=None, ret_type=1):
 def get_object_content_headers(house_no):
     return {
         "machineNo": "",
-        "ipAddress": "203.218.155.48",
+        "ipAddress": "45.152.113.89",
         "osType": 4,
         "model": "web",
         "deviceVersion": "Mac OS X 10.15.7",
@@ -81,7 +81,7 @@ def get_object_content_headers(house_no):
 def get_object_detail_headers(house_no):
     return {
         "machineNo": "",
-        "ipAddress": "203.218.155.48",
+        "ipAddress": "45.152.113.89",
         "osType": 4,
         "model": "web",
         "deviceVersion": "Mac OS X 10.15.7",
