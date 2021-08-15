@@ -7,3 +7,5 @@ sample/*.xlsx
 decisionTreeModel/.ipynb_checkpoints
 decisionTreeModel/__pycache__
 decisionTreeModel/data/sample2.xlsx
+taiwanHoustPredict/.ipynb_checkpoints
+taiwanHoustPredict/__pycache__
