@@ -1,96 +1,96 @@
 Training and testing split was successful.
-Parameter 'max_depth' is 4 for the optimal model.
-Optimal model has R^2 score 0.76 on 台北市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 6 for the optimal model.
-Optimal model has R^2 score 0.78 on 新北市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 8 for the optimal model.
-Optimal model has R^2 score 0.73 on 基隆市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 1 for the optimal model.
-Optimal model has R^2 score 0.26 on 宜蘭縣 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 8 for the optimal model.
-Optimal model has R^2 score 0.94 on 新竹市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 9 for the optimal model.
-Optimal model has R^2 score 0.80 on 新竹縣 test data
+Parameter 'max_depth' is 5 for the optimal model.
+Optimal model has R^2 score 0.84 on 台北市 test data. data size 3093
 
 
 Training and testing split was successful.
 Parameter 'max_depth' is 7 for the optimal model.
-Optimal model has R^2 score 0.85 on 桃園市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 9 for the optimal model.
-Optimal model has R^2 score 0.80 on 苗栗縣 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 7 for the optimal model.
-Optimal model has R^2 score 0.91 on 台中市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 7 for the optimal model.
-Optimal model has R^2 score -0.59 on 彰化縣 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 1 for the optimal model.
-Optimal model has R^2 score -0.00 on 南投縣 test data
+Optimal model has R^2 score 0.70 on 新北市 test data. data size 2766
 
 
 Training and testing split was successful.
 Parameter 'max_depth' is 5 for the optimal model.
-Optimal model has R^2 score 0.66 on 雲林縣 test data
+Optimal model has R^2 score 0.10 on 基隆市 test data. data size 140
 
 
 Training and testing split was successful.
-Parameter 'max_depth' is 7 for the optimal model.
-Optimal model has R^2 score 0.69 on 嘉義市 test data
+Parameter 'max_depth' is 5 for the optimal model.
+Optimal model has R^2 score 0.71 on 宜蘭縣 test data. data size 148
 
 
 Training and testing split was successful.
-Parameter 'max_depth' is 8 for the optimal model.
-Optimal model has R^2 score 0.65 on 嘉義縣 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 10 for the optimal model.
-Optimal model has R^2 score 0.96 on 台南市 test data
-
-
-Training and testing split was successful.
-Parameter 'max_depth' is 9 for the optimal model.
-Optimal model has R^2 score 0.78 on 高雄市 test data
+Parameter 'max_depth' is 4 for the optimal model.
+Optimal model has R^2 score 0.97 on 新竹市 test data. data size 100
 
 
 Training and testing split was successful.
 Parameter 'max_depth' is 6 for the optimal model.
-Optimal model has R^2 score 0.55 on 屏東縣 test data
+Optimal model has R^2 score 0.63 on 新竹縣 test data. data size 148
 
 
 Training and testing split was successful.
-Parameter 'max_depth' is 10 for the optimal model.
-Optimal model has R^2 score -0.04 on 台東縣 test data
+Parameter 'max_depth' is 8 for the optimal model.
+Optimal model has R^2 score 0.89 on 桃園市 test data. data size 3481
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 7 for the optimal model.
+Optimal model has R^2 score 0.74 on 苗栗縣 test data. data size 199
 
 
 Training and testing split was successful.
 Parameter 'max_depth' is 9 for the optimal model.
-Optimal model has R^2 score 0.87 on 花蓮縣 test data
+Optimal model has R^2 score 0.86 on 台中市 test data. data size 3411
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 8 for the optimal model.
+Optimal model has R^2 score 0.75 on 彰化縣 test data. data size 80
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 4 for the optimal model.
+Optimal model has R^2 score 0.42 on 南投縣 test data. data size 12
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 7 for the optimal model.
+Optimal model has R^2 score 0.41 on 雲林縣 test data. data size 24
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 7 for the optimal model.
+Optimal model has R^2 score 0.96 on 嘉義市 test data. data size 87
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 8 for the optimal model.
+Optimal model has R^2 score 0.44 on 嘉義縣 test data. data size 28
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 9 for the optimal model.
+Optimal model has R^2 score 0.94 on 台南市 test data. data size 693
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 6 for the optimal model.
+Optimal model has R^2 score 0.83 on 高雄市 test data. data size 785
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 8 for the optimal model.
+Optimal model has R^2 score 0.42 on 屏東縣 test data. data size 114
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 8 for the optimal model.
+Optimal model has R^2 score -0.04 on 台東縣 test data. data size 10
+
+
+Training and testing split was successful.
+Parameter 'max_depth' is 5 for the optimal model.
+Optimal model has R^2 score 0.47 on 花蓮縣 test data. data size 95
 
 
 金門縣 data size less than 10, continue next city
